@@ -1,0 +1,23 @@
+/** -- menu -- **/
+
+ul.nav.navbar-nav li a.current-menu {
+    background: #f0f8ff;
+}
+
+/** -- form -- **/
+
+form.form-panel {
+    margin-bottom: 10px;
+}
+form.form-panel input {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 250px;
+    margin-right: 5px;
+}
+form.form-panel button {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
