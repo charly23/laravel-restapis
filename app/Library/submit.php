@@ -10,6 +10,7 @@ class submit extends APIsFacades
     public static function actions ( $value=null ) 
     {
         $data = null;
+        
         if( !empty( $value) ) :
             $data = static::maps_api( $value );
             // $data = static::instagram_api( '',$maps_array);
@@ -23,7 +24,6 @@ class submit extends APIsFacades
     public static function maps_api ( $str=null ) 
     {   
         $i=0;
-
         $maps_url = 'https://' .
             'maps.googleapis.com/' .
             'maps/api/geocode/json' .
@@ -37,16 +37,15 @@ class submit extends APIsFacades
             var_dump($maps_array); 
             echo '</pre>';
         endif;
-
     }
+
+    /**
+    * Time to make our Instagram api request. We'll build the url using the
+    * coordinate values returned by the google maps api
+    */
 
     public static function instagram_api ( $id=null, $maps_array=null ) 
     {
-        /**
-         * Time to make our Instagram api request. We'll build the url using the
-         * coordinate values returned by the google maps api
-         */
-
         $client_id = $id;
 
         $lat = $maps_array['results'][$i]['geometry']['location']['lat'];
@@ -64,18 +63,33 @@ class submit extends APIsFacades
         return $array;
     }
 
+    // facebook-api
+    // https://graph.facebook.com/v1.0/me/friends?access_token={$token}
+
     public static function facebook_api ( $id=null, $maps_array=null ) 
     {
-        // facebook-api
-        // https://graph.facebook.com/v1.0/me/friends?access_token={$token}
+        // call
     }
 
+    // youtube-api
+    // https://www.googleapis.com/youtube/v3/videos
+    // https://www.googleapis.com/youtube/v3/videos?id=&part=contentDetails&key={YOUR_API_KEY}
+    // AIzaSyAvIqMNlAHCnAqMnX7O25J7XH1pKuUdJFc
     public static function youtube_api ( $keys=null ) 
     {
-        // youtube-api
-        // https://www.googleapis.com/youtube/v3/videos
-        // https://www.googleapis.com/youtube/v3/videos?id=&part=contentDetails&key={YOUR_API_KEY}
-        // AIzaSyAvIqMNlAHCnAqMnX7O25J7XH1pKuUdJFc
+        // call
+    }
+
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+
+        //
     }
 
     // END
