@@ -15,7 +15,7 @@
                 <div class="panel-heading">
 
                     <?php
-                        $submit = new \App\library\submit;
+                        // new \App\library\submit;
                         $search = isset($_GET['search'])?trim($_GET['search']):null;
                     ?>
 
@@ -28,7 +28,7 @@
                     </form><!-- forms - END -->
 
                     <?php
-                        $submit::actions($search);
+                        submit::actions($search);
                     ?>
 
                 </div>

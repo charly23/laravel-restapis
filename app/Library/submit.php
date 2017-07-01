@@ -10,7 +10,7 @@ class submit extends APIsFacades
     public static function actions ( $value=null ) 
     {
         $data = null;
-        
+
         if( !empty( $value) ) :
             $data = static::maps_api( $value );
             // $data = static::instagram_api( '',$maps_array);
@@ -75,6 +75,7 @@ class submit extends APIsFacades
     // https://www.googleapis.com/youtube/v3/videos
     // https://www.googleapis.com/youtube/v3/videos?id=&part=contentDetails&key={YOUR_API_KEY}
     // AIzaSyAvIqMNlAHCnAqMnX7O25J7XH1pKuUdJFc
+
     public static function youtube_api ( $keys=null ) 
     {
         // call
@@ -85,6 +86,7 @@ class submit extends APIsFacades
      *
      * @return void
      */
+    
     public function boot()
     {
         parent::boot();
