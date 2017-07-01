@@ -78,7 +78,35 @@ class submit extends APIsFacades
 
     public static function youtube_api ( $keys=null ) 
     {
-        // call
+        $i=0;
+        $api_key = $key;
+        $api_base = 'https://www.googleapis.com/youtube/v3/videos';
+        $thumbnail_base = 'https://i.ytimg.com/vi/';
+
+        $params = array(
+            'part' => 'contentDetails',
+            'id' => $vid,
+            'key' => $api_key,
+        );
+
+        $api_url = $api_base . '?' . http_build_query($params);
+        $result = json_decode(@file_get_contents($api_url), true);
+
+        if(empty($result['items'][$i]['contentDetails']))
+            return null;
+        $vinfo = $result['items'][$i]['contentDetails'];
+
+        $interval = new DateInterval($vinfo['duration']);
+        $vinfo['duration_sec'] = $interval->h * 3600 + $interval->i * 60 + $interval->s;
+
+        $vinfo['thumbnail']['default']       = $thumbnail_base . $vid . '/default.jpg';
+        $vinfo['thumbnail']['mqDefault']     = $thumbnail_base . $vid . '/mqdefault.jpg';
+        $vinfo['thumbnail']['hqDefault']     = $thumbnail_base . $vid . '/hqdefault.jpg';
+
+        $vinfo['thumbnail']['sdDefault']     = $thumbnail_base . $vid . '/sddefault.jpg';
+        $vinfo['thumbnail']['maxresDefault'] = $thumbnail_base . $vid . '/maxresdefault.jpg';
+
+        return $vinfo;
     }
 
     /**
