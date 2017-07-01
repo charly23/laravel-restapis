@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,7 @@
 */
 
 Route::get('/', function ($name='home') {
-    return view('index', ['page'=>$name]); 
+    return view('index', ['page'=>$name,,'label'=>'Library (TEST)']); 
 });
 
 // Route::get('/home', 'HomeController@index');
