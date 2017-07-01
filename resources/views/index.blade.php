@@ -6,7 +6,7 @@
 
         <div class="header col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Rest APIs : Library (TEST)</div>
+                <div class="panel-heading">Rest APIs : <? echo $label; ?></div>
             </div>
         </div>
 
